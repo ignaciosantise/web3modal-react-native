@@ -66,6 +66,6 @@ export type {
   VisualType
 } from './utils/TypesUtil';
 export { UiUtil } from './utils/UiUtil';
-export { Spacing, BorderRadius } from './utils/ThemeUtil';
+export { Spacing, BorderRadius, DarkTheme, LightTheme } from './utils/ThemeUtil';
 
 export { useTheme } from './hooks/useTheme';

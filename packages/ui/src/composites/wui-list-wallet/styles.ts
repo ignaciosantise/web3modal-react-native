@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native';
-import { BorderRadius, Spacing } from '../../utils/ThemeUtil';
+import { BorderRadius, Spacing, createStyleSheet } from '../../utils/ThemeUtil';
 
-export default StyleSheet.create({
+export const stylesheet = createStyleSheet(theme => ({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -9,7 +8,8 @@ export default StyleSheet.create({
     height: 56,
     width: '100%',
     borderRadius: BorderRadius.xs,
-    paddingHorizontal: Spacing.xs
+    paddingHorizontal: Spacing.xs,
+    backgroundColor: theme['accent-100']
   },
   leftSide: {
     flexDirection: 'row',
@@ -29,4 +29,4 @@ export default StyleSheet.create({
   imageDisabled: {
     opacity: 0.4
   }
-});
+}));

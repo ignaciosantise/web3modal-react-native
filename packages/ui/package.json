@@ -38,7 +38,8 @@
     "access": "public"
   },
   "dependencies": {
-    "qrcode": "1.5.3"
+    "qrcode": "1.5.3",
+    "react-native-unistyles": "1.2.0"
   },
   "peerDependencies": {
     "react": ">=17",

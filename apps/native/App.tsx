@@ -67,7 +67,11 @@ createWeb3Modal({
   projectId,
   chains,
   wagmiConfig,
-  clipboardClient
+  clipboardClient,
+  themeMode: 'dark',
+  themeVariables: {
+    'accent-100': '#f0b90b'
+  }
 });
 
 export default function Native() {

@@ -4,6 +4,7 @@ import { useWindowDimensions, StatusBar } from 'react-native';
 import Modal from 'react-native-modal';
 import { Card } from '@web3modal/ui-react-native';
 import { ApiController, ModalController, RouterController } from '@web3modal/core-react-native';
+import { UnistylesTheme } from 'react-native-unistyles';
 
 import { Web3Router } from '../w3m-router';
 import { Header } from '../../partials/w3m-header';
@@ -11,8 +12,10 @@ import { Header } from '../../partials/w3m-header';
 import styles from './styles';
 import { Snackbar } from '../../partials/w3m-snackbar';
 import { useCustomDimensions } from '../../hooks/useCustomDimensions';
+import { useTheme } from '../../hooks/useTheme';
 
 export function Web3Modal() {
+  const theme = useTheme();
   const { open } = useSnapshot(ModalController.state);
   const { history } = useSnapshot(RouterController.state);
   const { height } = useWindowDimensions();
@@ -33,21 +36,23 @@ export function Web3Modal() {
   }, []);
 
   return (
-    <Modal
-      style={styles.modal}
-      isVisible={open}
-      useNativeDriver
-      statusBarTranslucent
-      hideModalContentWhileAnimating
-      propagateSwipe
-      onBackdropPress={ModalController.close}
-      onBackButtonPress={onBackButtonPress}
-    >
-      <Card style={[styles.card, { maxHeight: isLandscape ? landScapeHeight : portraitHeight }]}>
-        <Header />
-        <Web3Router />
-        <Snackbar />
-      </Card>
-    </Modal>
+    <UnistylesTheme theme={theme}>
+      <Modal
+        style={styles.modal}
+        isVisible={open}
+        useNativeDriver
+        statusBarTranslucent
+        hideModalContentWhileAnimating
+        propagateSwipe
+        onBackdropPress={ModalController.close}
+        onBackButtonPress={onBackButtonPress}
+      >
+        <Card style={[styles.card, { maxHeight: isLandscape ? landScapeHeight : portraitHeight }]}>
+          <Header />
+          <Web3Router />
+          <Snackbar />
+        </Card>
+      </Modal>
+    </UnistylesTheme>
   );
 }

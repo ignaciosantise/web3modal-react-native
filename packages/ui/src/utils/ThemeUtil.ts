@@ -1,4 +1,9 @@
+import { createUnistyles } from 'react-native-unistyles';
 import type { SpacingType, ThemeKeys } from './TypesUtil';
+
+export const breakpoints = {
+  xs: 0
+};
 
 export const DarkTheme: { [key in ThemeKeys]: string } = {
   'accent-100': '#47a1ff',
@@ -37,13 +42,6 @@ export const DarkTheme: { [key in ThemeKeys]: string } = {
 
   'success-100': '#26d962',
   'error-100': '#f25a67',
-
-  'teal-100': '#36e2e2',
-  'magenta-100': '#cb4d8c',
-  'indigo-100': '#516dfb',
-  'orange-100': '#ffa64c',
-  'purple-100': '#906ef7',
-  'yellow-100': '#faff00',
 
   'gray-glass-001': 'rgba(255, 255, 255, 0.01)',
   'gray-glass-002': 'rgba(255, 255, 255, 0.02)',
@@ -100,13 +98,6 @@ export const LightTheme: { [key in ThemeKeys]: string } = {
   'success-100': '#26b562',
   'error-100': '#f05142',
 
-  'teal-100': '#2bb6b6',
-  'magenta-100': '#c65380',
-  'indigo-100': '#3d5cf5',
-  'orange-100': '#ea8c2e',
-  'purple-100': '#794cff',
-  'yellow-100': '#eccc1c',
-
   'gray-glass-001': 'rgba(255, 255, 255, 0.01)',
   'gray-glass-002': 'rgba(0, 0, 0, 0.02)',
   'gray-glass-005': 'rgba(0, 0, 0, 0.05)',
@@ -123,6 +114,11 @@ export const LightTheme: { [key in ThemeKeys]: string } = {
   'icon-box-bg-error-100': '#f4dfdd',
   'icon-box-bg-success-100': '#daf0e4'
 };
+
+export const { useStyles, createStyleSheet } = createUnistyles<
+  typeof breakpoints,
+  typeof DarkTheme
+>(breakpoints);
 
 export const BorderRadius = {
   '5xs': 4,

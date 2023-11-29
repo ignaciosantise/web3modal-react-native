@@ -7,7 +7,8 @@ import { Tag } from '../wui-tag';
 import { WalletImage } from '../wui-wallet-image';
 import { Icon } from '../../components/wui-icon';
 
-import styles from './styles';
+import { stylesheet } from './styles';
+import { useStyles } from '../../utils/ThemeUtil';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -37,6 +38,7 @@ export function ListWallet({
   style
 }: ListWalletProps) {
   const Theme = useTheme();
+  const { styles } = useStyles(stylesheet);
   const { animatedValue, setStartValue, setEndValue } = useAnimatedValue(
     Theme['gray-glass-002'],
     Theme['gray-glass-010']
@@ -81,7 +83,7 @@ export function ListWallet({
     <AnimatedPressable
       style={[
         styles.container,
-        { backgroundColor: disabled ? Theme['gray-glass-010'] : animatedValue },
+        // { backgroundColor: disabled ? Theme['gray-glass-010'] : animatedValue },
         style
       ]}
       disabled={disabled}

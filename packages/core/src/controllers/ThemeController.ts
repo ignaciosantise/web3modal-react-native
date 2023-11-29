@@ -9,7 +9,7 @@ export interface ThemeControllerState {
 
 // -- State --------------------------------------------- //
 const state = proxy<ThemeControllerState>({
-  themeMode: 'dark',
+  themeMode: 'system',
   themeVariables: {}
 });
 
