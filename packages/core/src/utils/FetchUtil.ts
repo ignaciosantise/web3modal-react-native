@@ -68,6 +68,22 @@ export class FetchUtil {
     return response.json() as T;
   }
 
+  public async fetchImage(path: string, headers?: Record<string, string>) {
+    try {
+      const url = this.createUrl({ path }).toString();
+      const response = await fetch(url, { headers });
+      const blob = await response.blob();
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+
+      return new Promise<string>(resolve => {
+        reader.onloadend = () => resolve(reader.result as string);
+      });
+    } catch {
+      return undefined;
+    }
+  }
+
   private createUrl({ path, params }: RequestArguments) {
     const url = new URL(path, this.baseUrl);
     if (params) {
