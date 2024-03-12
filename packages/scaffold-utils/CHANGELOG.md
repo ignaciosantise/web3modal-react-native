@@ -4,7 +4,6 @@
 
 ### Patch Changes
 
-- fix
 - Updated dependencies
   - @web3modal/scaffold-react-native@1.2.1
 

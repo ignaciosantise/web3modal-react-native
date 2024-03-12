@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- fix
+- fix: images with custom headers doesnt load (core)
 
 ## 1.2.0
 

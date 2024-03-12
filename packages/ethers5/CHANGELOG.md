@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- fix
+- bump to 1.2.1
 
 ## 1.2.0
 
